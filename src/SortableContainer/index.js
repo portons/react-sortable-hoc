@@ -46,6 +46,7 @@ export default function sortableContainer(WrappedComponent, config = {withRef: f
       pressDelay: 0,
       pressThreshold: 5,
       distance: 0,
+      columnsGap: 0,
       useWindowAsScrollContainer: false,
       hideSortableGhost: true,
       shouldCancelStart: function(e) {
@@ -75,6 +76,7 @@ export default function sortableContainer(WrappedComponent, config = {withRef: f
       onSortMove: PropTypes.func,
       onSortOver: PropTypes.func,
       onSortEnd: PropTypes.func,
+      columnsGap: PropTypes.number,
       shouldCancelStart: PropTypes.func,
       pressDelay: PropTypes.number,
       useDragHandle: PropTypes.bool,
@@ -252,6 +254,7 @@ export default function sortableContainer(WrappedComponent, config = {withRef: f
           hideSortableGhost,
           onSortStart,
           useWindowAsScrollContainer,
+          columnsGap
         } = this.props;
         const {node, collection} = active;
         const {index} = node.sortableInfo;
@@ -265,7 +268,7 @@ export default function sortableContainer(WrappedComponent, config = {withRef: f
         this.width = dimensions.width;
         this.height = dimensions.height;
         this.marginOffset = {
-          x: this.margin.left + this.margin.right,
+          x: this.margin.left + this.margin.right + columnsGap,
           y: Math.max(this.margin.top, this.margin.bottom),
         };
         this.boundingClientRect = node.getBoundingClientRect();
