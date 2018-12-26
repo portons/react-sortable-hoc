@@ -254,7 +254,7 @@ export default function sortableContainer(WrappedComponent, config = {withRef: f
           hideSortableGhost,
           onSortStart,
           useWindowAsScrollContainer,
-          columnsGap
+          columnsGap,
         } = this.props;
         const {node, collection} = active;
         const {index} = node.sortableInfo;
